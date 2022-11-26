@@ -25,13 +25,7 @@ import { PrimitiveButtonImple } from "../button";
 const DialogDemo = () => (
   <Dialog.Root>
     <Dialog.Trigger asChild>
-      <PrimitiveButtonImple
-        onClick={() => {
-          console.log("hjdd");
-        }}
-      >
-        버튼
-      </PrimitiveButtonImple>
+      <PrimitiveButtonImple>버튼</PrimitiveButtonImple>
     </Dialog.Trigger>
     <Dialog.Portal>
       <DialogOverlay />

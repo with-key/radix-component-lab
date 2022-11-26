@@ -1,9 +1,4 @@
-import React, {
-  ComponentPropsWithoutRef,
-  ElementRef,
-  forwardRef,
-  Ref,
-} from "react";
+import React, { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
 import { Primitive } from "@radix-ui/react-primitive";
 import { styled } from "../../styles/stitches.config";
 
