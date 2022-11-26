@@ -4,6 +4,7 @@ import { styled, keyframes } from "@stitches/react";
 // import { violet, blackA, mauve, green } from "@radix-ui/colors";
 // import { Cross2Icon } from "@radix-ui/react-icons";
 import { SlotButton } from "../slot";
+import { PrimitiveButtonImple } from "../button";
 
 /**
  *
@@ -24,7 +25,13 @@ import { SlotButton } from "../slot";
 const DialogDemo = () => (
   <Dialog.Root>
     <Dialog.Trigger asChild>
-      <button>버튼</button>
+      <PrimitiveButtonImple
+        onClick={() => {
+          console.log("hjdd");
+        }}
+      >
+        버튼
+      </PrimitiveButtonImple>
     </Dialog.Trigger>
     <Dialog.Portal>
       <DialogOverlay />

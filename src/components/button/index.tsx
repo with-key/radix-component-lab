@@ -1,6 +1,13 @@
-import React, { ComponentPropsWithoutRef, forwardRef, Ref } from "react";
+import React, {
+  ComponentPropsWithoutRef,
+  ElementRef,
+  forwardRef,
+  Ref,
+} from "react";
 import { Primitive } from "@radix-ui/react-primitive";
 import { styled } from "../../styles/stitches.config";
+
+// 이 Button 컴포넌트는 결과적으로 html attribute, React Props, React custom Props, Radix Button Props를 모두 가진 버튼이 된다.
 
 /**
  *  다행히 리액트는 컴포넌트의 프로퍼티 중에서 ref만 제외한 나머지 프로퍼티들 쉽게 타이핑할 수
@@ -8,31 +15,39 @@ import { styled } from "../../styles/stitches.config";
  *  유틸리티 타입을 사용하여 ref 키를 직접 제거하지 않아도 된다.
  */
 
-type PrimitiveButtonProps = ComponentPropsWithoutRef<typeof StButton>;
+type PrimitiveButtonAttr = ComponentPropsWithoutRef<typeof StButton>;
 
 /**
  * 커스텀 props 타입 명시
+ * 커스텀 props와 PrimitiveButtonProps의 attrtribute 가 같을 시 충돌 가능성 있음
+ * type intersection, interface extneds 모두 같은 문제 있음
  */
 type Props = {
   size?: "big" | "small";
-} & PrimitiveButtonProps;
+} & PrimitiveButtonAttr;
+type ButtonElement = ElementRef<typeof Primitive.button>;
 
-export const PrimitiveButton = forwardRef(
-  (props: Props, ref: Ref<HTMLButtonElement>) => {
+export const PrimitiveButtonImple = forwardRef<ButtonElement, Props>(
+  (props, ref) => {
     return <StButton {...props} ref={ref} />;
   }
 );
 
 /**
- * default style button design
+ *  default Button component style
  */
-const StButton = styled("button", {
+const StButton = styled(Primitive.button, {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
   border: "1px solid #ddd",
   width: "200px",
   height: "37px",
+  borderRadius: 8,
+  cursor: "pointer",
 });
 
-PrimitiveButton.displayName = "PrimitiveButton";
+PrimitiveButtonImple.displayName = "PrimitiveButton";
 
 /**
  * refer
