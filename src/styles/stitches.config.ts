@@ -1,5 +1,11 @@
 import { createStitches } from "@stitches/react";
 
+type FlexParam = {
+  dir: "column" | "row" | "colunm-reverse" | "row-reverse";
+  ai: "cetner" | "end" | "start";
+  jc: "";
+};
+
 export const {
   styled,
   css,
@@ -18,5 +24,10 @@ export const {
   },
   utils: {
     marginX: (value: string) => ({ marginLeft: value, marginRight: value }),
+    flexX: ({ dir = "row", ai = "cetner" }: FlexParam) => ({
+      display: "flex",
+      flexDirection: dir,
+      justifyContent: "",
+    }),
   },
 });
