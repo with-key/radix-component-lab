@@ -23,11 +23,23 @@ export const {
     },
   },
   utils: {
-    marginX: (value: string) => ({ marginLeft: value, marginRight: value }),
-    flexX: ({ dir = "row", ai = "cetner" }: FlexParam) => ({
-      display: "flex",
-      flexDirection: dir,
-      justifyContent: "",
+    mx: (value: number) => ({ marginLeft: value, marginRight: value }),
+    my: (value: number) => ({ marginTop: value, marginBottom: value }),
+
+    bdr: (value: string) => ({
+      border: `1px solid ${value}`,
+    }),
+
+    w: (value: number) => ({
+      width: `${value}px`,
+    }),
+
+    h: (value: number) => ({
+      height: `${value}px`,
+    }),
+
+    br: (value: number) => ({
+      borderRadius: `${value}px`,
     }),
   },
 });

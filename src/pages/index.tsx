@@ -1,16 +1,8 @@
 import React from "react";
-import { PrimitiveButtonImple } from "../components/button";
-import DialogDemo from "../components/dialog";
-import { styled } from "../styles/stitches.config";
+import Button from "../materials/button/components";
 
-const Home = () => {
-  return (
-    <div>
-      <DialogDemo></DialogDemo>
-    </div>
-  );
+const App = () => {
+  return <Button>버튼</Button>;
 };
 
-export default Home;
-
-const Flex = styled("div", {});
+export default App;
