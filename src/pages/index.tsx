@@ -1,8 +1,26 @@
 import React from "react";
-import Button from "../materials/button/components";
+import * as RenderProp from "../pattern/RenderProp";
+import * as Select from "../pattern/compound/Select";
+import { Primitive } from "@radix-ui/react-primitive";
+import { styled } from "@styles/stitches.config";
+import {
+  AlertRoot,
+  AlertTrigger,
+  DialogRoot,
+  DialogTrigger,
+} from "../pattern/scopeContext/Dialog";
 
 const App = () => {
-  return <Button>버튼</Button>;
+  return (
+    <>
+      <AlertRoot open={false} value="alert">
+        <DialogRoot open={true} value="dialog">
+          <AlertTrigger />
+          <DialogTrigger />
+        </DialogRoot>
+      </AlertRoot>
+    </>
+  );
 };
 
 export default App;
