@@ -1,5 +1,5 @@
 import React, { forwardRef, ReactNode } from "react";
-import { createContextScope } from "@radix-ui/react-context";
+import { createContextScope, createContext } from "@radix-ui/react-context";
 
 import { Primitive } from "@radix-ui/react-primitive";
 
@@ -39,6 +39,7 @@ type DialogRootProps = {
 
 export const DialogRoot = (props: ScopedProps<DialogRootProps>) => {
   const { __scopeDialog, ...dialogProps } = props;
+  console.log(__scopeDialog);
   /*
    * DialogProvider는 scope라는 prop이 존재하면 해당 scope의 Context를 참조하고,
    * undefined라면 새로 생성한 Context를 참조하도록 구성되어 있다.
@@ -75,7 +76,7 @@ type AlertScopedProps<P> = P & { __scopeAlertDialog?: Scope };
 
 const [createAlertDialogContext, createAlertDialogScope] = createContextScope(
   "AlertDialog",
-  [createDialogScope] // 참조하고자하는 context를 의존성배열에 넣음
+  [] // 참조하고자하는 context를 의존성배열에 넣음
 );
 
 const [AlertProvider, useAlertContext] = createAlertDialogContext("Alert");
@@ -107,3 +108,7 @@ export const AlertTrigger = forwardRef<
 });
 
 AlertTrigger.displayName = "AlertTrigger";
+
+const AlertContent = () => {
+  return <div></div>;
+};
