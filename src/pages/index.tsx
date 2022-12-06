@@ -6,11 +6,12 @@ const App = () => {
   return (
     <div>
       <AlertModal.AlertModal>
+        <AlertModal.AlertModalTrigger>
+          Alert Button
+        </AlertModal.AlertModalTrigger>
         <Modal.Modal>
-          <AlertModal.AlertModalTrigger>
-            Alert Button
-          </AlertModal.AlertModalTrigger>
           <Modal.ModalTrigger>Modal Button</Modal.ModalTrigger>
+          <Modal.ModalContent>11111</Modal.ModalContent>
         </Modal.Modal>
       </AlertModal.AlertModal>
     </div>

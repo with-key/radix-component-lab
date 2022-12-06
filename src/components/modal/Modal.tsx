@@ -2,6 +2,7 @@ import * as React from "react";
 import { Primitive } from "@radix-ui/react-primitive";
 
 import { createContextScope, Scope } from "@radix-ui/react-context";
+import { styled } from "@styles/stitches.config";
 
 type ModalScopeProps<P> = P & { __scopeModal?: Scope };
 export type ModalProps = {
@@ -42,13 +43,25 @@ export const Modal = (props: ModalScopeProps<ModalProps>) => {
 };
 
 const ModalContentName = "ModalContent";
-type ModalContentProps = {};
+type ModalContentProps = {
+  children: React.ReactNode;
+};
 
 export const ModalContent = (props: ModalScopeProps<ModalContentProps>) => {
-  const { __scopeModal } = props;
+  const { __scopeModal, ...modalContentProps } = props;
   const context = useContext(ModalContentName, __scopeModal);
-  return <div>{context.text}</div>;
+  return context.open ? <StModalContent {...modalContentProps} /> : <></>;
 };
+
+const StModalContent = styled(Primitive.div, {
+  width: 300,
+  height: 300,
+  border: "1px solid red",
+  position: "absolute",
+  right: "50%",
+  top: "50%",
+  transform: "translate(-50%, -50%)",
+});
 
 const TriggerName = "ModalTrigger";
 interface ModalTriggerProps
@@ -58,8 +71,6 @@ interface ModalTriggerProps
 export const ModalTrigger = (props: ModalScopeProps<ModalTriggerProps>) => {
   const { __scopeModal, ...modalTriggerProps } = props;
   const context = useContext(TriggerName, __scopeModal);
-
-  console.log(__scopeModal, " ->  : ", context.open);
 
   return (
     <Primitive.button {...modalTriggerProps} onClick={context.onOpenToggle} />

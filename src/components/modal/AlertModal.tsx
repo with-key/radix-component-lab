@@ -13,7 +13,11 @@ export const AlertModal = (props: AlertModalScopeProps<ModalProps>) => {
   return <Modal.Modal {...alertModalScope} {...alertModalProps} />;
 };
 
-export const AlertModalContent = (props: AlertModalScopeProps<{}>) => {
+export const AlertModalContent = (
+  props: AlertModalScopeProps<{
+    children: React.ReactNode;
+  }>
+) => {
   const { __alertModalScope, ...alertModalContentProps } = props;
   const alertModalScope = useScope(__alertModalScope);
   return (
@@ -28,7 +32,6 @@ export const AlertModalTrigger = (
 ) => {
   const { __alertModalScope, ...alertModalContentProps } = props;
   const alertModalScope = useScope(__alertModalScope);
-  console.log(alertModalContentProps);
   return (
     <Modal.ModalTrigger {...alertModalScope} {...alertModalContentProps} />
   );
