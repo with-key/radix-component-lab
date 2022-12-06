@@ -11,6 +11,8 @@
   "dependencies": {
     "@radix-ui/colors": "^0.1.8",
     "@radix-ui/react-alert-dialog": "^1.0.2",
+    "@radix-ui/react-collection": "^1.0.1",
+    "@radix-ui/react-context": "^1.0.0",
     "@radix-ui/react-dialog": "^1.0.2",
     "@radix-ui/react-icons": "^1.1.1",
     "@radix-ui/react-use-previous": "^1.0.0",
