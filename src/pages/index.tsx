@@ -7,8 +7,10 @@ const App = () => {
     <div>
       <AlertModal.AlertModal>
         <Modal.Modal>
-          <AlertModal.AlertModalContent />
-          <Modal.ModalContent />
+          <AlertModal.AlertModalTrigger>
+            Alert Button
+          </AlertModal.AlertModalTrigger>
+          <Modal.ModalTrigger>Modal Button</Modal.ModalTrigger>
         </Modal.Modal>
       </AlertModal.AlertModal>
     </div>
